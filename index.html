@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damian Chiagozie | Professional Ghostwriter</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #0f172a;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        c.gap-2 { gap: 8px; }
+        .gap-4 { gap: 16px; }
+        .gap-6 { gap: 24px; }
+        .hidden { display: none; }
+        .mobile-only { display: block; }
+        
+        @media (min-width: 768px) {
+            .md-flex { display: flex; }
+            .md-hidden { display: none; }
+            .mobile-only { display: none; }
+            .md-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+            .md-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #1e293b;
+            z-index: 100;
+            color: white;
+        }
+        .nav-inner { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-weight: 700; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+        .logo-icon { background: #2563eb; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .nav-links a { color: #cbd5e1; font-size: 14px; font-weight: 500; margin-left: 32px; transition: 0.2s; }
+        .nav-links a:hover { color: white; }
+        .nav-btn { background: white; color: #0f172a; padding: 8px 20px; border-radius: 99px; font-weight: 700; margin-left: 32px; }
+
+        /* --- HERO SECTION --- */
+        header { padding: 120px 24px 80px; text-align: center; }
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(37, 99, 235, 0.1); color: #2563eb;
+            padding: 6px 12px; border-radius: 99px; font-size: 12px; font-weight: 600;
+            margin-bottom: 24px; border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+        .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; }
+        h1 { font-size: 40px; line-height: 1.1; font-weight: 800; margin-bottom: 24px; color: #0f172a; }
+        .gradient-text { background: linear-gradient(to right, #2563eb, #4f46e5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-sub { font-size: 18px; color: #475569; max-width: 600px; margin: 0 auto 40px; }
+        
+        .btn-primary {
+            background: #0f172a; color: white; padding: 16px 32px;
+            border-radius: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px;
+            transition: transform 0.2s;
+        }
+        .btn-secondary {
+            background: white; color: #334155; border: 1px solid #e2e8f0; padding: 16px 32px;
+            border-radius: 12px; font-weight: 700; margin-top: 12px;
+            display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .btn-primary:active, .btn-secondary:active { transform: scale(0.98); }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 64px; }
+            .btn-secondary { margin-top: 0; margin-left: 16px; }
+        }
+
+        /* --- SERVICES --- */
+        .section-bg { background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
+        .py-20 { padding-top: 80px; padding-bottom: 80px; }
+        .service-card {
+            background: white; padding: 32px; border-radius: 16px;
+            border: 1px solid #f1f5f9; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 24px;
+        }
+        .icon-box {
+            width: 48px; height: 48px; background: #eff6ff; color: #2563eb;
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px; font-size: 24px;
+        }
+        .card-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .card-desc { color: #64748b; font-size: 15px; }
+
+        /* --- PORTFOLIO SAMPLES --- */
+        .tab-container { display: flex; justify-content: center; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn {
+            padding: 8px 24px; border-radius: 99px; font-size: 14px; font-weight: 700;
+            background: white; color: #64748b; transition: 0.2s;
+        }
+        .tab-btn.active { background: #2563eb; color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        
+        .sample-card {
+            background: white; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden;
+            margin-bottom: 24px; display: none; /* Hidden by default */
+        }
+        .sample-card.visible { display: block; }
+        
+        .sample-header {
+            background: #f8fafc; padding: 16px 24px; border-bottom: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .client-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; color: #64748b; letter-spacing: 0.5px; }
+        .dots { display: flex; gap: 4px; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; }
+        
+        .sample-body { padding: 24px; }
+        .sample-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .sample-context { font-size: 13px; color: #64748b; font-style: italic; margin-bottom: 16px; }
+        .sample-content {
+            background: #f8fafc; padding: 16px; border-radius: 8px; border: 1px solid #f1f5f9;
+            font-family: monospace; white-space: pre-wrap; font-size: 14px; color: #334155;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .bg-dark { background: #0f172a; color: white; }
+        .contact-card {
+            background: rgba(30, 41, 59, 0.5); border: 1px solid #334155;
+            border-radius: 16px; padding: 8px; display: inline-flex;
+            flex-direction: column; width: 100%; max-width: 400px; margin-bottom: 16px;
+        }
+        .email-text { padding: 12px; font-family: monospace; color: #cbd5e1; word-break: break-all; }
+        .copy-btn {
+            background: #1e293b; color: white; padding: 12px; border-radius: 8px;
+            font-weight: 700; margin-top: 8px; border: 1px solid #475569;
+        }
+        .whatsapp-btn {
+            background: #16a34a; color: white; padding: 16px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 700; margin-bottom: 16px; width: 100%; max-width: 400px;
+            margin-left: auto; margin-right: auto; box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+        }
+        .call-btn {
+             background: white; color: #0f172a; padding: 16px; border-radius: 16px;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            font-weight: 700; margin-bottom: 16px; width: 100%; max-width: 400px;
+            margin-left: auto; margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .contact-card { flex-direction: row; align-items: center; padding: 0; overflow: hidden; }
+            .email-text { padding: 16px 24px; }
+            .copy-btn { margin: 0; border-radius: 0; border: none; border-left: 1px solid #475569; height: 100%; padding: 0 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-inner">
+            <div class="logo">
+                <div class="logo-icon">D</div>
+                <span>Damian<span style="color: #3b82f6;">.Writes</span></span>
+            </div>
+            <div class="nav-links md-flex hidden">
+                <a href="#services">Services</a>
+                <a href="#work">Work Samples</a>
+                <a href="#contact" class="nav-btn">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header>
+        <div class="status-badge">
+            <div class="status-dot"></div>
+            AVAILABLE FOR NEW CLIENTS
+        </div>
+        <h1>I Turn Your Ideas Into <br class="md-hidden"> <span class="gradient-text">Authority Assets.</span></h1>
+        <p class="hero-sub">Professional Ghostwriter. I save you 10+ hours a week by writing high-impact LinkedIn posts, threads, and articles that scale your brand while you sleep.</p>
+        
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <a href="#contact" class="btn-primary">
+                Let's Talk <span>→</span>
+            </a>
+            <a href="#work" class="btn-secondary">
+                View Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- Services -->
+    <section id="services" class="section-bg py-20">
+        <div class="container">
+            <div class="md-grid-3">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="icon-box">💼</div>
+                    <h3 class="card-title">LinkedIn Growth</h3>
+                    <p class="card-desc">3-5 posts per week designed to stop the scroll. I handle the ideation, writing, and hooks. You just hit publish.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="icon-box">🧵</div>
+                    <h3 class="card-title">Viral Threads</h3>
+                    <p class="card-desc">Complex ideas broken down into digestible, shareable threads. Perfect for tech founders explaining products.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="icon-box">✒️</div>
+                    <h3 class="card-title">Thought Leadership</h3>
+                    <p class="card-desc">Ghostwritten articles for Medium or your company blog. Position yourself as the expert in your niche.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="work" class="py-20">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 16px;">Specimen Work</h2>
+                <p style="color: #64748b;">Here is exactly what I can write for you. No fluff.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tab-container">
+                <button class="tab-btn active" onclick="filterSamples('linkedin')">LinkedIn</button>
+                <button class="tab-btn" onclick="filterSamples('threads')">Threads</button>
+                <button class="tab-btn" onclick="filterSamples('articles')">Articles</button>
+            </div>
+
+            <!-- Samples -->
+            <div class="md-grid-2">
+                
+                <!-- LinkedIn Sample 1 -->
+                <div class="sample-card visible sample-linkedin">
+                    <div class="sample-header">
+                        <span class="client-tag">Fintech CEO</span>
+                        <div class="dots"><div class="dot" style="background:#f87171"></div><div class="dot" style="background:#facc15"></div><div class="dot" style="background:#4ade80"></div></div>
+                    </div>
+                    <div class="sample-body">
+                        <h4 class="sample-title">The 'Vulnerable Leader' Post</h4>
+                        <p class="sample-context">Target: Investors & Talent</p>
+                        <div class="sample-content">I used to think "hustle culture" was the only way to build a unicorn in Lagos.
+
+In 2023, I slept 4 hours a night. I missed my daughter's birthday. I answered emails at 3 AM.
+
+We grew 200%. But I was miserable.
+
+Yesterday, I told my entire team to go home at 4 PM. 
+Why? Because burnt-out founders make bad decisions.
+
+#StartupLife #MentalHealth #Fintech</div>
+                    </div>
+                </div>
+
+                <!-- LinkedIn Sample 2 -->
+                <div class="sample-card visible sample-linkedin">
+                    <div class="sample-header">
+                        <span class="client-tag">Crypto Founder</span>
+                        <div class="dots"><div class="dot" style="background:#f87171"></div><div class="dot" style="background:#facc15"></div><div class="dot" style="background:#4ade80"></div></div>
+                    </div>
+                    <div class="sample-body">
+                        <h4 class="sample-title">Industry Prediction</h4>
+                        <p class="sample-context">Target: Thought Leadership</p>
+                        <div class="sample-content">Cash is dying. But credit cards aren't the killer.
+
+Look at the data from Lagos to London. The friction of 16-digit numbers is becoming obsolete.
+
+We are moving toward "Invisible Payments."
+- Uber started it.
+- Apple Pay normalized it.
+- Blockchain will perfect it.
+
+The future isn't cashless. The future is effortless.</div>
+                    </div>
+                </div>
+
+                 <!-- Thread Sample -->
+                <div class="sample-card sample-threads">
+                    <div class="sample-header">
+                        <span class="client-tag">SaaS Consultant</span>
+                         <div class="dots"><div class="dot" style="background:#f87171"></div><div class="dot" style="background:#facc15"></div><div class="dot" style="background:#4ade80"></div></div>
+                    </div>
+                    <div class="sample-body">
+                        <h4 class="sample-title">The 'How-To' Thread</h4>
+                        <p class="sample-context">Target: Newsletter Signups</p>
+                        <div class="sample-content">1/ 99% of startups fail because they build before they sell.
+
+Here is the 3-step framework I used to validate a $10k idea in 48 hours (without writing code). 🧵👇
+
+2/ Step 1: The "Pain" Interview.
+Don't ask "Would you buy this?"
+Ask "When was the last time you tried to solve this problem?"
+
+3/ Step 2: The "Ugly" Landing Page.
+Use Carrd or Notion. 
+Headline: The Promise.
+CTA: "Join Waitlist."
+
+Retweet if this helped you! 🔄</div>
+                    </div>
+                </div>
+                
+                 <!-- Article Sample -->
+                <div class="sample-card sample-articles">
+                    <div class="sample-header">
+                        <span class="client-tag">Tech Blog</span>
+                         <div class="dots"><div class="dot" style="background:#f87171"></div><div class="dot" style="background:#facc15"></div><div class="dot" style="background:#4ade80"></div></div>
+                    </div>
+                    <div class="sample-body">
+                        <h4 class="sample-title">Why Fintech is Eating the World</h4>
+                        <p class="sample-context">Target: General Authority</p>
+                        <div class="sample-content">(Excerpt) ... The narrative used to be "Aid for Africa." Now, it is "Trade with Africa." But the real story is deeper. It is about infrastructure.
+
+While the West debates legacy banking systems, Nigeria is leapfrogging directly to mobile-first, agent-based banking. We aren't just catching up; in many ways, we are writing the playbook for the next billion users.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-dark py-20">
+        <div class="container text-center">
+            <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 16px;">Ready to scale?</h2>
+            <p style="color: #94a3b8; margin-bottom: 40px;">I only take on 4 clients at a time. Contact me directly.</p>
+
+            <div class="contact-card" style="margin: 0 auto 24px auto;">
+                <div class="email-text" id="emailText">damianchiagozie1@gmail.com</div>
+                <button class="copy-btn" onclick="copyEmail()">Copy Email</button>
+            </div>
+
+            <a href="https://wa.me/2349048953093" target="_blank" class="whatsapp-btn">
+                <span>💬</span> Chat on WhatsApp
+            </a>
+             <a href="tel:+2349048953093" class="call-btn">
+                <span>📞</span> Call Me
+            </a>
+
+            <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid #1e293b; font-size: 14px; color: #64748b;">
+                Based in Nigeria, Working Globally <br>
+                © 2025 Damian Chiagozie
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function copyEmail() {
+            const email = document.getElementById('emailText').innerText;
+            navigator.clipboard.writeText(email);
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "Copied!";
+            setTimeout(() => {
+                btn.innerText = originalText;
+            }, 2000);
+        }
+
+        function filterSamples(type) {
+            // Update buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Hide all
+            document.querySelectorAll('.sample-card').forEach(card => card.classList.remove('visible'));
+
+            // Show selected
+            document.querySelectorAll('.sample-' + type).forEach(card => card.classList.add('visible'));
+        }
+    </script>
+</body>
+</html>
+
+
